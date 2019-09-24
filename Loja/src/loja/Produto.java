@@ -17,7 +17,7 @@ public class Produto{
   private static String Categoria;
   private static String Particularidade; 
   
-  public Produto(int codigo,int quant,int preco_uni,String Descri,String Categ,String particu){
+  public int SetProduto(int codigo,int quant,int preco_uni,String Descri,String Categ,String particu){
       if(codigo>0 && preco_uni>0){
       CodigoProduto = codigo;
       Quantidade = quant;
@@ -25,7 +25,17 @@ public class Produto{
       Descricao = Descri;
       Categoria = Categ;
       Particularidade = particu;
+      return 1;
       }
+      return 0;
+  }
+  
+  public int VendeuProduto(int Quant){  //Função para venda de unidades de produto, ela subtrai quantidade vendida.
+      if(Quantidade<= Quant){
+          Quantidade = Quantidade - Quant;
+          return 1;
+      }
+      return 0;
   }
   
   public int Get_Codigo(){
