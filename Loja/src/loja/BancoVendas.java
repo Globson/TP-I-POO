@@ -40,4 +40,18 @@ public class BancoVendas {
      public Venda GetVenda(int index){   //sempre utilizar Procuraindex e verificar se retorno é != de -1//
          return BancoDVendas.get(index);
      }
+     
+     public void ListaVendas(){
+         System.out.println("---Inicio da listagem de vendas:--");
+         for(int i =0; i<BancoDVendas.size();i++){
+             System.out.println("----------Venda "+(i+1)+" ------------");
+             System.out.println("Codigo da venda: "+BancoDVendas.get(i).GetCodigoV());
+             System.out.println("Codigo do Cliente: "+BancoDVendas.get(i).GetCodigoC());
+             System.out.println("Data da venda: "+BancoDVendas.get(i).GetData());
+             System.out.println("Status: "+BancoDVendas.get(i).GetStatus());
+             BancoDVendas.get(i).PrintaProdutos();
+             System.out.println("--------------------------------------");
+         }
+         System.out.println("---Fim da listagem de vendas---");
+     }
 }

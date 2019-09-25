@@ -40,4 +40,18 @@ public class Estoque {
     public Produto GetProduto(int Index){ //sempre usar com procuraindex e verificar se retorno é != -1//
         return Estoque.get(Index);
     }
+    public void ListaProdutos(){
+        System.out.println("---Inicio da listagem de produtos:--");
+        for(int i=0;i<Estoque.size();i++){
+            System.out.println("----------Produto "+(i+1)+" ------------");
+            System.out.println("Descricao: "+Estoque.get(i).Get_Descricao());
+            System.out.println("Preco unitario: "+Estoque.get(i).Get_Preco());
+            System.out.println("Codigo: "+Estoque.get(i).Get_Codigo());
+            System.out.println("Categoria: "+Estoque.get(i).Get_Categoria());
+            System.out.println("Quantidade: "+Estoque.get(i).Get_Quantidade());
+            System.out.println("Particularidade: "+Estoque.get(i).Get_Particularidade());
+            System.out.println("----------------------------------------");
+        }
+        System.out.println("---Fim da listagem de produtos---");
+    }
 }

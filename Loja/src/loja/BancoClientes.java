@@ -41,4 +41,18 @@ public class BancoClientes {
     public Cliente GetBancoCliente(int index){ //sempre utilizar funcao procuraindex e verificar se retorno != -1//
         return Banco_Clientes.get(index);
     }
+    
+    public void ListaClientes(){
+        System.out.println("---Inicio da listagem de clientes:--");
+        for(int i=0;i<Banco_Clientes.size();i++){
+            System.out.println("----------Cliente "+(i+1)+" ------------");
+            System.out.println("Nome: "+Banco_Clientes.get(i).GetNome());
+            System.out.println("CPF: "+Banco_Clientes.get(i).GetCPF());
+            System.out.println("Codigo: "+Banco_Clientes.get(i).GetCodigo());
+            System.out.println("Email: "+Banco_Clientes.get(i).GetEmail());
+            System.out.println("Endereco: "+Banco_Clientes.get(i).GetPrimeiroEndereco());
+            System.out.println("----------------------------------------");
+        }
+        System.out.println("---Fim da listagem de clientes---");
+    }
 }

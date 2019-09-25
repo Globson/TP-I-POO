@@ -74,14 +74,14 @@ public class Venda{
       return Status;
   }
   public void PrintaProdutos(){
-      System.out.println("---Inicio de lista de produtos---");
+      System.out.println("\t---Inicio de lista de produtos---");
       for(int i = 0;i<CodigoProduto.size();i++){
-          System.out.println("--------- Item "+(i+1)+" ---------");
+          System.out.println("\t--------- Item "+(i+1)+" ---------");
           System.out.println("\tCodigo do produto: "+CodigoProduto.get(i));
           System.out.println("\tPreco do produto (unidade): "+PrecoProduto.get(i));
           System.out.println("\tQuantidade do produto: "+QuantidadeProduto.get(i));
-          System.out.println("------------------------------");
+          System.out.println("\t------------------------------");
       }
-      System.out.println("---Fim de lista de produtos---");
+      System.out.println("\t---Fim de lista de produtos---");
   }
 }
