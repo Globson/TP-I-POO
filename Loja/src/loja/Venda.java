@@ -11,12 +11,53 @@ package loja;
  */
 import java.util.ArrayList;
 public class Venda{
+  private static int CodigoVenda;
   private static int CodigoCliente;
-  private ArrayList<Integer> CodigoProduto = new ArrayList<Integer>();
-  private ArrayList<Integer> PrecoProduto = new ArrayList<Integer>();
-  private ArrayList<Integer> QuantidadeProduto = new ArrayList<Integer>();
+  private ArrayList<Integer> CodigoProduto;
+  private ArrayList<Integer> PrecoProduto;  //Index de cada produto mantido nos 3 arraylists//
+  private ArrayList<Integer> QuantidadeProduto;
   private static String Data;
-  protected enum Status{
-      Pendente,Em_Andamento,Entregue;}
-  private Status Status1;
+  private static String Status;
+  
+  public Venda(int codigoV,int codigoC,String data,String status){
+    CodigoVenda = codigoV;
+    CodigoCliente = codigoC;
+    Data = data;
+    Status = status;
+    CodigoProduto = new ArrayList<Integer>();
+    PrecoProduto = new ArrayList<Integer>();
+    QuantidadeProduto = new ArrayList<Integer>();   
+}
+  
+  public boolean SetProdutoVendido(int codigoP,int precoP,int quantP){
+      for(int i=0;i<CodigoProduto.size();i++){
+          if(codigoP == CodigoProduto.get(i)){
+              return false;  //produto ja cadastrado em venda
+          }
+      }
+      CodigoProduto.add(codigoP);
+      PrecoProduto.add(precoP);
+      QuantidadeProduto.add(quantP);
+      return true;
+  }
+  
+  public int ValorTotal(){
+      int total = 0;
+      for(int i=0;i<CodigoProduto.size();i++){
+          total = total + (PrecoProduto.get(i) * QuantidadeProduto.get(i));
+      }
+      return total;
+  }
+  
+  public int GetCodigoVenda(){
+      return CodigoVenda;
+  }
+  
+  public boolean AlteraStatus(String statusNovo){
+      if(statusNovo.equals("pendente") || statusNovo.equals("em andamento") || statusNovo.equals("entregue")){
+          Status = statusNovo;
+          return true;
+      }
+      return false;
+  }
 }

@@ -29,12 +29,15 @@ public class Estoque {
         return -1;
     }
     
-    public int AlteraEstoque(int codigo,int Novocodigo,int quant,int preco_uni,String Descri,String Categ,String particu){  //retorna 1 caso alteracoes sejam realizadas, 0 caso não.
+    public boolean AlteraEstoque(int codigo,int Novocodigo,int quant,int preco_uni,String Descri,String Categ,String particu){  //retorna 1 caso alteracoes sejam realizadas, 0 caso não.
         int a = ProcuraIndex(codigo);
         if(a>-1){
             return Estoque.get(a).SetProduto(Novocodigo, quant, preco_uni, Descri, Categ, particu);   
         }
-        return 0;
+        return false;
     }
     
+    public Produto GetProduto(int Index){ //sempre usar com procuraindex e verificar se retorno é != -1//
+        return Estoque.get(Index);
+    }
 }
