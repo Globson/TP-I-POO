@@ -29,7 +29,7 @@ public class BancoClientes {
         return -1;
     }
     
-    public boolean ModificaCliente(int codigo,int NovoCodigo,String nome,String cpf,String email,String senha,String endereco){
+    public boolean AlteraCliente(int codigo,int NovoCodigo,String nome,String cpf,String email,String senha,String endereco){
         int a = ProcuraIndex(codigo);
         if(a>-1){
             if(Banco_Clientes.get(a).SetNomeCPF_Cliente(nome,cpf) && Banco_Clientes.get(a).SetEmail(email) && Banco_Clientes.get(a).SetSenha(senha) && Banco_Clientes.get(a).AdicionaEndereco(endereco)){

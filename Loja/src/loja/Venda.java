@@ -13,11 +13,11 @@ import java.util.ArrayList;
 public class Venda{
   private static int CodigoVenda;
   private static int CodigoCliente;
+  private static String Status;
+  private static String Data;
   private ArrayList<Integer> CodigoProduto;
   private ArrayList<Integer> PrecoProduto;  //Index de cada produto mantido nos 3 arraylists//
   private ArrayList<Integer> QuantidadeProduto;
-  private static String Data;
-  private static String Status;
   
   public Venda(int codigoV,int codigoC,String data,String status){
     CodigoVenda = codigoV;
@@ -59,5 +59,29 @@ public class Venda{
           return true;
       }
       return false;
+  }
+  
+  public int GetCodigoV(){
+      return CodigoVenda;
+  }
+  public int GetCodigoC(){
+      return CodigoCliente;
+  }
+  public String GetData(){
+      return Data;
+  }
+  public String GetStatus(){
+      return Status;
+  }
+  public void PrintaProdutos(){
+      System.out.println("---Inicio de lista de produtos---");
+      for(int i = 0;i<CodigoProduto.size();i++){
+          System.out.println("--------- Item "+(i+1)+" ---------");
+          System.out.println("\tCodigo do produto: "+CodigoProduto.get(i));
+          System.out.println("\tPreco do produto (unidade): "+PrecoProduto.get(i));
+          System.out.println("\tQuantidade do produto: "+QuantidadeProduto.get(i));
+          System.out.println("------------------------------");
+      }
+      System.out.println("---Fim de lista de produtos---");
   }
 }

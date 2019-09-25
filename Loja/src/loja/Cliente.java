@@ -10,9 +10,9 @@ public class Cliente{
   private static String Nome;
   private static int Codigo;
   private static String CPF;
-  private ArrayList<String> Enderecos = new ArrayList<String>();
   private static String Email;
   private static String Senha;
+  private ArrayList<String> Enderecos = new ArrayList<String>();
   
   public boolean SetNomeCPF_Cliente(String nome,String cpf){
       Nome = nome;
@@ -66,6 +66,21 @@ public class Cliente{
     
   public int GetCodigo(){
       return Codigo;
+  }
+  public String GetNome(){
+      return Nome;
+  }
+  public String GetCPF(){
+      return CPF;
+  }
+  public String GetEmail(){
+      return Email;
+  }
+  public String GetPrimeiroEndereco(){
+      if (Enderecos.size() > 0){
+      return Enderecos.get(0);
+      }
+      return "NULL";
   }
 }
 

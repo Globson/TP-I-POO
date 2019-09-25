@@ -36,4 +36,8 @@ public class BancoVendas {
          }
          return false;
      }
+     
+     public Venda GetVenda(int index){   //sempre utilizar Procuraindex e verificar se retorno é != de -1//
+         return BancoDVendas.get(index);
+     }
 }
