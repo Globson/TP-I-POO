@@ -11,10 +11,10 @@ package loja;
  */
 import java.util.ArrayList;
 public class Venda{
-  private static int CodigoVenda;
-  private static int CodigoCliente;
-  private static String Status;
-  private static String Data;
+  private int CodigoVenda;
+  private int CodigoCliente;
+  private String Status;
+  private String Data;
   private ArrayList<Integer> CodigoProduto;
   private ArrayList<Integer> PrecoProduto;  //Index de cada produto mantido nos 3 arraylists//
   private ArrayList<Integer> QuantidadeProduto;

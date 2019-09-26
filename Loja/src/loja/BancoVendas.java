@@ -16,8 +16,14 @@ public class BancoVendas {
          BancoDVendas = new ArrayList<Venda>();
      }
      
-     public void AdicionaVenda(Venda V){
+     public boolean AdicionaVenda(Venda V){
+         for(int i=0;i<BancoDVendas.size();i++){
+             if(BancoDVendas.get(i).GetCodigoV() == V.GetCodigoC()){
+                 return false;
+             }
+         }
          BancoDVendas.add(V);
+         return true;
      }
      
      public int ProcuraIndex(int codigoV){

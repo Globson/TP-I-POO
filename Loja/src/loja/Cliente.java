@@ -7,11 +7,11 @@ package loja;
 import java.util.ArrayList;
 
 public class Cliente{
-  private static String Nome;
-  private static int Codigo;
-  private static String CPF;
-  private static String Email;
-  private static String Senha;
+  private String Nome;
+  private int Codigo;
+  private String CPF;
+  private String Email;
+  private String Senha;
   private ArrayList<String> Enderecos = new ArrayList<String>();
   
   public boolean SetNomeCPF_Cliente(String nome,String cpf){

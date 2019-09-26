@@ -16,8 +16,14 @@ public class BancoClientes {
         Banco_Clientes = new ArrayList<Cliente>();
     }
     
-    public void AdicionaCliente(Cliente C){
+    public boolean AdicionaCliente(Cliente C){
+        for(int i=0;i<Banco_Clientes.size();i++){
+            if(Banco_Clientes.get(i).GetCodigo() == C.GetCodigo() || Banco_Clientes.get(i).GetEmail().equals(C.GetEmail())){
+                return false; //cliente ja existe;
+            }
+        }
         Banco_Clientes.add(C);
+        return true;
     }
     
     public int ProcuraIndex(int codigo){

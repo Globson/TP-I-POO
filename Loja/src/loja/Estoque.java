@@ -16,8 +16,14 @@ public class Estoque {
        Estoque = new ArrayList<Produto>();
     }
     
-    public void AdicionaItem(Produto Item){
+    public boolean AdicionaItem(Produto Item){
+        for(int i=0;i<Estoque.size();i++){
+            if(Estoque.get(i).Get_Codigo() == Item.Get_Codigo()){
+                return false; //produto ja existente
+            }
+        }
         Estoque.add(Item);
+        return true;
     }
      
     public int ProcuraIndex(int codigo){   //retorna indice de produto no arraylist caso produto com reespectivo codigo seja encontrado, retorna -1 caso n encontre

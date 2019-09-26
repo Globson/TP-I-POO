@@ -10,12 +10,13 @@ package loja;
  * @author grobs
  */
 public class Produto{
-  private static int CodigoProduto;
-  private static int Quantidade;
-  private static int preco;
-  private static String Descricao;
-  private static String Categoria;
-  private static String Particularidade; 
+  private int CodigoProduto;
+  private int Quantidade;
+  private int preco;
+  private String Descricao;
+  private String Categoria;
+  private  String Particularidade; 
+  
   
   public boolean SetProduto(int codigo,int quant,int preco_uni,String Descri,String Categ,String particu){
       if(codigo>0 && preco_uni>0){
