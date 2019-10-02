@@ -29,11 +29,14 @@ public class Venda{
     QuantidadeProduto = new ArrayList<Integer>();   
 }
   
-  public boolean SetProdutoVendido(int codigoP,int precoP,int quantP){
+  public boolean SetProdutoVendido(int codigoP,int precoP,int quantP,Estoque E){
       for(int i=0;i<CodigoProduto.size();i++){
           if(codigoP == CodigoProduto.get(i)){
               return false;  //produto ja cadastrado em venda
           }
+      }
+      if(E.ProcuraIndex(codigoP) == -1){ //verificando se codigo do produto encontra-se cadastrado no estoque.
+          return false;
       }
       CodigoProduto.add(codigoP);
       PrecoProduto.add(precoP);

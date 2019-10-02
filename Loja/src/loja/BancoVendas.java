@@ -16,14 +16,19 @@ public class BancoVendas {
          BancoDVendas = new ArrayList<Venda>();
      }
      
-     public boolean AdicionaVenda(Venda V){
+     public boolean AdicionaVenda(Venda V,BancoClientes C){ // funcao verifica se codigo de cliente existe para cadastrar venda.
          for(int i=0;i<BancoDVendas.size();i++){
              if(BancoDVendas.get(i).GetCodigoV() == V.GetCodigoC()){
                  return false;
              }
          }
-         BancoDVendas.add(V);
-         return true;
+         if(C.ProcuraIndex(V.GetCodigoC()) != -1){
+            BancoDVendas.add(V);
+            return true; 
+         }
+         else{
+             return false;
+         }
      }
      
      public int ProcuraIndex(int codigoV){

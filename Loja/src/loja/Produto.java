@@ -12,13 +12,13 @@ package loja;
 public class Produto{
   private int CodigoProduto;
   private int Quantidade;
-  private int preco;
+  private double preco;
   private String Descricao;
   private String Categoria;
   private  String Particularidade; 
   
   
-  public boolean SetProduto(int codigo,int quant,int preco_uni,String Descri,String Categ,String particu){
+  public boolean SetProduto(int codigo,int quant,double preco_uni,String Descri,String Categ,String particu){
       if(codigo>0 && preco_uni>0){
       CodigoProduto = codigo;
       Quantidade = quant;
@@ -45,7 +45,7 @@ public class Produto{
   public int Get_Quantidade(){
       return Quantidade;
   }
-  public int Get_Preco(){
+  public double Get_Preco(){
       return preco;
   }
   public String Get_Descricao(){
