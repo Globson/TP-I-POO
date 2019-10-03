@@ -31,7 +31,7 @@ public class Loja {
    
    public static void menuVenda(){
        System.out.println("1 - Cadastrar Venda");
-       System.out.println("2 - Listar Venda");
+       System.out.println("2 - Listar Vendas");
        System.out.println("3 - Alterar status de venda");
    }
     public static void main(String[] args) {    //testes comentados
@@ -71,6 +71,7 @@ public class Loja {
         */
         Estoque Estoque1 = new Estoque();
         BancoClientes BancoC = new BancoClientes();
+        BancoVendas BancoV = new BancoVendas();
         System.out.println("\tBem vindo a gestao comercial");
         Scanner sc = new Scanner(System.in);
         while(true){
@@ -268,7 +269,98 @@ public class Loja {
                }
            }
            if(a == 3){
-               
+               int b = 0;
+               menuVenda();
+               while(b!=1 && b!=2 && b!= 3){
+                    System.out.print("Entre com a opcao:");
+                    b = sc.nextInt();
+                    sc.nextLine();
+                    if(b!=1 && b!=2 && b!= 3){
+                        System.out.println("Opcao invalida!");
+                    }
+                }
+               if(b==1){
+                   boolean verificacao = false;
+                   int CodigoV;
+                   int CodigoC;
+                   String Data = new String();
+                   String Status = new String();
+                   System.out.print("Entre com o codigo da Venda:");
+                   CodigoV = sc.nextInt();
+                   sc.nextLine();
+                   System.out.print("Entre com o codigo do cliente:");
+                   CodigoC = sc.nextInt();
+                   sc.nextLine();
+                   System.out.print("Entre com a data da venda:");
+                   Data = sc.nextLine();
+                   System.out.print("Entre com o status da venda:");
+                   Status = sc.nextLine();
+                   Venda V = new Venda(CodigoV,CodigoC,Data,Status);
+                   while(true){
+                       int c = 0;
+                       int codigoP;
+                       int precoP;
+                       int quantP;
+                       System.out.print("Entre com o codigo do produto vendido:");
+                       codigoP = sc.nextInt();
+                       sc.nextLine();
+                       System.out.print("Entre com o preco unitario do produto vendido:");
+                       precoP = sc.nextInt();
+                       sc.nextLine();
+                       System.out.print("Entre com a quantidade do produto vendido:");
+                       quantP = sc.nextInt();
+                       sc.nextLine();
+                       if(V.SetProdutoVendido(codigoP, precoP, quantP, Estoque1)){
+                           System.out.println("Produto cadastrado em venda com sucesso!");
+                           verificacao = true;
+                       }
+                       else{
+                           System.out.println("Erro! Produto nao encontrado em estoque!");
+                       }
+                       System.out.println("Deseja cadastrar mais produtos vendidos?");
+                          System.out.println("\t 1 - Sim");
+                          System.out.println("\t 2 - Nao");
+                          while(c!=1 && c!=2){
+                            System.out.print("Entre com a opcao:");
+                            c = sc.nextInt();
+                            sc.nextLine();
+                            if(c!=1 && c!=2){
+                            System.out.println("Opcao invalida!");
+                            }
+                           }
+                          if(c == 2){
+                              break;
+                          }
+                   }
+                 if(verificacao){
+                     if(BancoV.AdicionaVenda(V, BancoC)){
+                     System.out.println("Venda cadastrada com sucesso!");
+                     }
+                     else{
+                     System.out.println("Erro! Cliente não encontrado!");
+                     }
+                 }
+                 else{
+                     System.out.println("Erro! Produto não encontrado!");
+                 }
+               }
+               if(b==2){
+                   BancoV.ListaVendas();
+               }
+               if(b==3){
+                   String statusnovo = new String();
+                   System.out.print("Entre com o codigo da venda que deseja alterar o status:");
+                   int codigo = sc.nextInt();
+                   sc.nextLine();
+                   System.out.print("Entre com o novo status:");
+                   statusnovo = sc.nextLine();
+                   if(BancoV.AlteraStatusVenda(codigo, statusnovo)){
+                       System.out.println("Status alterado com sucesso!");
+                   }
+                   else{
+                       System.out.println("Erro! Venda nao encontrada!");
+                   }
+               }
            }
            if(a == 9){
                System.out.println("Tem certeza q deseja finalizar?");
