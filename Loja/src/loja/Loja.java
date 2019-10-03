@@ -299,18 +299,14 @@ public class Loja {
                    while(true){
                        int c = 0;
                        int codigoP;
-                       int precoP;
                        int quantP;
                        System.out.print("Entre com o codigo do produto vendido:");
                        codigoP = sc.nextInt();
                        sc.nextLine();
-                       System.out.print("Entre com o preco unitario do produto vendido:");
-                       precoP = sc.nextInt();
-                       sc.nextLine();
                        System.out.print("Entre com a quantidade do produto vendido:");
                        quantP = sc.nextInt();
                        sc.nextLine();
-                       if(V.SetProdutoVendido(codigoP, precoP, quantP, Estoque1)){
+                       if(V.SetProdutoVendido(codigoP, quantP, Estoque1)){
                            System.out.println("Produto cadastrado em venda com sucesso!");
                            verificacao = true;
                        }

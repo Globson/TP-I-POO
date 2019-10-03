@@ -16,7 +16,7 @@ public class Venda{
   private String Status;
   private String Data;
   private ArrayList<Integer> CodigoProduto;
-  private ArrayList<Integer> PrecoProduto;  //Index de cada produto mantido nos 3 arraylists//
+  private ArrayList<Double> PrecoProduto;  //Index de cada produto mantido nos 3 arraylists//
   private ArrayList<Integer> QuantidadeProduto;
   
   public Venda(int codigoV,int codigoC,String data,String status){
@@ -25,18 +25,23 @@ public class Venda{
     Data = data;
     Status = status;
     CodigoProduto = new ArrayList<Integer>();
-    PrecoProduto = new ArrayList<Integer>();
+    PrecoProduto = new ArrayList<Double>();
     QuantidadeProduto = new ArrayList<Integer>();   
 }
   
-  public boolean SetProdutoVendido(int codigoP,int precoP,int quantP,Estoque E){
+  public boolean SetProdutoVendido(int codigoP,int quantP,Estoque E){
+      int indexProduto = E.ProcuraIndex(codigoP);
+      double precoP;
       for(int i=0;i<CodigoProduto.size();i++){
           if(codigoP == CodigoProduto.get(i)){
               return false;  //produto ja cadastrado em venda
           }
       }
-      if(E.ProcuraIndex(codigoP) == -1){ //verificando se codigo do produto encontra-se cadastrado no estoque.
+      if(indexProduto == -1){ //verificando se codigo do produto encontra-se cadastrado no estoque.
           return false;
+      }
+      else{
+          precoP = E.GetProduto(indexProduto).Get_Preco();
       }
       CodigoProduto.add(codigoP);
       PrecoProduto.add(precoP);
@@ -44,8 +49,8 @@ public class Venda{
       return true;
   }
   
-  public int ValorTotal(){
-      int total = 0;
+  public double ValorTotal(){
+      double total = 0;
       for(int i=0;i<CodigoProduto.size();i++){
           total = total + (PrecoProduto.get(i) * QuantidadeProduto.get(i));
       }
