@@ -43,13 +43,13 @@ public class Cliente{
       if(senha.length() < 8){
           return false;
       }
-      for(int i = 0;i<senha.length();i++){
+      /*for(int i = 0;i<senha.length();i++){  //resolvi tirar condicao de n poder repetir caractere
           for(int j = 0;j<senha.length();j++){
               if(senha.charAt(i) == senha.charAt(j)){
                   return false;
               }
           }
-      }
+      }*/
       Senha = senha;
       return true;
   }

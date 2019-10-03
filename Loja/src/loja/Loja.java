@@ -70,6 +70,7 @@ public class Loja {
         BClientes.ListaClientes();
         */
         Estoque Estoque1 = new Estoque();
+        BancoClientes BancoC = new BancoClientes();
         System.out.println("\tBem vindo a gestao comercial");
         Scanner sc = new Scanner(System.in);
         while(true){
@@ -148,19 +149,19 @@ public class Loja {
                     String Descri = new String();
                     String Categ = new String();
                     String particularidade = new String();
-                    System.out.print("Entre com a quantidade do produto:");
+                    System.out.print("Entre com a nova quantidade do produto:");
                     quant = sc.nextInt();
                     sc.nextLine();
-                    System.out.print("Entre com o preco unitario do produto:");
+                    System.out.print("Entre com o novo preco unitario do produto:");
                     preco_uni = sc.nextDouble();
                     sc.nextLine();
-                    System.out.print("Entre com a descricao do produto:");
+                    System.out.print("Entre com a nova descricao do produto:");
                     Descri = sc.nextLine();
-                    System.out.print("Entre com a categoria do produto:");
+                    System.out.print("Entre com a nova categoria do produto:");
                     Categ = sc.nextLine();
-                    System.out.print("Entre com a particularidade do produto:");
+                    System.out.print("Entre com a nova particularidade do produto:");
                     particularidade = sc.nextLine();
-                   if(Estoque1.AlteraEstoque(codigo, codigo, quant, preco_uni, Descri, Categ, particularidade)){
+                   if(Estoque1.AlteraEstoque(codigo, quant, preco_uni, Descri, Categ, particularidade)){
                        System.out.println("Produto modificado com sucesso!");
                    }
                    else{
@@ -169,7 +170,102 @@ public class Loja {
                 }
            }
            if(a == 2){
-               
+               int b = 0;
+               menuCliente();
+               while(b!=1 && b!=2 && b!= 3){
+                    System.out.print("Entre com a opcao:");
+                    b = sc.nextInt();
+                    sc.nextLine();
+                    if(b!=1 && b!=2 && b!= 3){
+                        System.out.println("Opcao invalida!");
+                    }
+                }
+               if(b==1){
+                  Cliente TempC = new Cliente();
+                  String Nome = new String();
+                  String Email = new String();  
+                  String Senha = new String();
+                  String CPF = new String();
+                  int codigo;
+                  System.out.print("Entre com o nome do cliente:");
+                  Nome = sc.nextLine();
+                  System.out.print("Entre com o codigo do cliente:");
+                  codigo = sc.nextInt();
+                  sc.nextLine();
+                  System.out.print("Entre com o CPF do cliente");
+                  CPF = sc.nextLine();
+                  System.out.print("Entre com o email do cliente:");
+                  Email = sc.nextLine();
+                  System.out.print("Entre com a senha:");
+                  Senha = sc.nextLine();
+                  if(TempC.SetNomeCPF_Cliente(Nome, CPF) && TempC.SetEmail(Email) && TempC.SetCodigo(codigo) && TempC.SetSenha(Senha)){
+                      while(true){
+                          int c = 0;
+                          String Endereco = new String();
+                          System.out.print("Entre com um endereco:");
+                          Endereco = sc.nextLine();
+                          if(TempC.AdicionaEndereco(Endereco)){
+                              System.out.println("Endereco adicionado com sucesso!");
+                          }
+                          else{
+                              System.out.println("Erro ao adicionar endereco! Endereco ja existente!");
+                          }
+                          System.out.println("Deseja cadastrar mais enderecos do cliente?");
+                          System.out.println("\t 1 - Sim");
+                          System.out.println("\t 2 - Nao");
+                          while(c!=1 && c!=2){
+                            System.out.print("Entre com a opcao:");
+                            c = sc.nextInt();
+                            sc.nextLine();
+                            if(c!=1 && c!=2){
+                            System.out.println("Opcao invalida!");
+                            }
+                           }
+                          if(c == 2){
+                              break;
+                          }
+                      }
+                     if(BancoC.AdicionaCliente(TempC)){
+                         System.out.println("Cliente cadastrado com sucesso!");
+                     }
+                     else{
+                         System.out.println("Erro ao cadastrar cliente! Codigo de cliente ja utilizado!");
+                     }
+                  }
+                  else{
+                      System.out.println("Erro ao criar cliente! Dados invalidos!");
+                  }
+               }
+               if(b==2){
+                   BancoC.ListaClientes();
+               }
+               if(b==3){
+                   System.out.print("Entre com o codigo do cliente que quer modificar:");
+                   int codigo = sc.nextInt();
+                   sc.nextLine();
+                   String Nome = new String();
+                   String Email = new String();  
+                   String Senha = new String();
+                   String CPF = new String();
+                   String Endereco = new String();
+                   System.out.print("Entre com o novo nome do cliente:");
+                   Nome = sc.nextLine();
+                   System.out.print("Entre com o novo CPF do cliente");
+                   CPF = sc.nextLine();
+                   System.out.print("Entre com o novo email do cliente:");
+                   Email = sc.nextLine();
+                   System.out.print("Entre com a nova senha:");
+                   Senha = sc.nextLine();
+                   System.out.print("Entre com um novo endereco:");
+                   Endereco = sc.nextLine();
+                   if(BancoC.AlteraCliente(codigo, Nome, CPF, Email, Senha, Endereco)){
+                       System.out.println("Cliente alterado com sucesso!");
+                   }
+                   else{
+                       System.out.println("Erro! Cliente nao encontrado!");
+                   }
+                   
+               }
            }
            if(a == 3){
                
@@ -183,6 +279,7 @@ public class Loja {
                while(b!=1 && b!=2){
                     System.out.print("Entre com a opcao:");
                     b = sc.nextInt();
+                    sc.nextLine();
                     if(b!=1 && b!=2){
                         System.out.println("Opcao invalida!");
                     }

@@ -35,10 +35,10 @@ public class Estoque {
         return -1;
     }
     
-    public boolean AlteraEstoque(int codigo,int Novocodigo,int quant,double preco_uni,String Descri,String Categ,String particu){  //retorna 1 caso alteracoes sejam realizadas, 0 caso não.
+    public boolean AlteraEstoque(int codigo,int quant,double preco_uni,String Descri,String Categ,String particu){  //retorna 1 caso alteracoes sejam realizadas, 0 caso não.
         int a = ProcuraIndex(codigo);
         if(a>-1){
-            return Estoque.get(a).SetProduto(Novocodigo, quant, preco_uni, Descri, Categ, particu);   
+            return Estoque.get(a).SetProduto(codigo, quant, preco_uni, Descri, Categ, particu);   
         }
         return false;
     }
