@@ -76,4 +76,7 @@ public class Estoque {
         }
         System.out.println("---Fim da listagem de produtos---");
     }
+    public ArrayList<Produto> getEstoque(){
+        return Estoque;
+    }
 }

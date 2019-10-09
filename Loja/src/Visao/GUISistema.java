@@ -5,6 +5,7 @@
  */
 package Visao;
 
+import javax.swing.JList;
 import loja.*;
 
 /**
@@ -72,6 +73,9 @@ public class GUISistema extends javax.swing.JFrame {
         jLabelClienteAlterarCadastroAviso1 = new javax.swing.JLabel();
         jLabelClienteAlterarCadastroAviso2 = new javax.swing.JLabel();
         jPanelClienteListar = new javax.swing.JPanel();
+        jButtonClienteListar = new javax.swing.JButton();
+        jScrollPaneListaClientes = new javax.swing.JScrollPane();
+        jTextAreaListaClientes = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPaneProduto = new javax.swing.JTabbedPane();
         jPanelProdutoCadastrar = new javax.swing.JPanel();
@@ -87,8 +91,7 @@ public class GUISistema extends javax.swing.JFrame {
         jLabelProdutoCadastrarParticularidade = new javax.swing.JLabel();
         jTextFieldProdutoCadastrarParticularidade = new javax.swing.JTextField();
         jButtonProdutoCadastrar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaProdutoCadastrarDescricao = new javax.swing.JTextArea();
+        jTextFieldProdutoCadastrarDescricao = new javax.swing.JTextField();
         jPanelProdutoAlterar = new javax.swing.JPanel();
         jLabelProdutoAlterarCodigo = new javax.swing.JLabel();
         jTextFieldProdutoAlterarCodigo = new javax.swing.JTextField();
@@ -101,10 +104,12 @@ public class GUISistema extends javax.swing.JFrame {
         jLabelProdutoAlterarDescricao = new javax.swing.JLabel();
         jTextFieldProdutoAlterarCategoria = new javax.swing.JTextField();
         jTextFieldProdutoAlterarParticularidade = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextAreaProdutoAlterarDescricao = new javax.swing.JTextArea();
         jButtonProdutoAlterar = new javax.swing.JButton();
+        jTextFieldProdutoAlterarDescricao = new javax.swing.JTextField();
         jPanelProdutoListar = new javax.swing.JPanel();
+        jButton1ListarProdutos = new javax.swing.JButton();
+        jScrollPaneListarProdutos = new javax.swing.JScrollPane();
+        jTextAreaListarProdutos = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jTabbedPaneVendas = new javax.swing.JTabbedPane();
         jPanelVendasNova = new javax.swing.JPanel();
@@ -126,8 +131,11 @@ public class GUISistema extends javax.swing.JFrame {
         jTextFieldVendasAlterarCodigoVenda = new javax.swing.JTextField();
         jLabelVendaAlterarStatus = new javax.swing.JLabel();
         jTextFieldVendasAlterarStatus = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
+        jButtonVendaAlterar = new javax.swing.JButton();
         jPanelVendasListar = new javax.swing.JPanel();
+        jButtonListarVendas = new javax.swing.JButton();
+        jScrollPaneListarVendas = new javax.swing.JScrollPane();
+        jTextAreaListarVendas = new javax.swing.JTextArea();
 
         jTextField27.setText("jTextField27");
 
@@ -378,15 +386,38 @@ public class GUISistema extends javax.swing.JFrame {
 
         jTabbedPaneCliente.addTab("Alterar Cadastro", jPanelClienteAlterar);
 
+        jButtonClienteListar.setText("Listar");
+        jButtonClienteListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClienteListarActionPerformed(evt);
+            }
+        });
+
+        jTextAreaListaClientes.setColumns(20);
+        jTextAreaListaClientes.setRows(5);
+        jScrollPaneListaClientes.setViewportView(jTextAreaListaClientes);
+
         javax.swing.GroupLayout jPanelClienteListarLayout = new javax.swing.GroupLayout(jPanelClienteListar);
         jPanelClienteListar.setLayout(jPanelClienteListarLayout);
         jPanelClienteListarLayout.setHorizontalGroup(
             jPanelClienteListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 504, Short.MAX_VALUE)
+            .addGroup(jPanelClienteListarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelClienteListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelClienteListarLayout.createSequentialGroup()
+                        .addGap(0, 423, Short.MAX_VALUE)
+                        .addComponent(jButtonClienteListar))
+                    .addComponent(jScrollPaneListaClientes))
+                .addContainerGap())
         );
         jPanelClienteListarLayout.setVerticalGroup(
             jPanelClienteListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 332, Short.MAX_VALUE)
+            .addGroup(jPanelClienteListarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPaneListaClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonClienteListar)
+                .addContainerGap())
         );
 
         jTabbedPaneCliente.addTab("Listar Clientes", jPanelClienteListar);
@@ -435,9 +466,11 @@ public class GUISistema extends javax.swing.JFrame {
             }
         });
 
-        jTextAreaProdutoCadastrarDescricao.setColumns(20);
-        jTextAreaProdutoCadastrarDescricao.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaProdutoCadastrarDescricao);
+        jTextFieldProdutoCadastrarDescricao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldProdutoCadastrarDescricaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelProdutoCadastrarLayout = new javax.swing.GroupLayout(jPanelProdutoCadastrar);
         jPanelProdutoCadastrar.setLayout(jPanelProdutoCadastrarLayout);
@@ -474,8 +507,8 @@ public class GUISistema extends javax.swing.JFrame {
                             .addGroup(jPanelProdutoCadastrarLayout.createSequentialGroup()
                                 .addComponent(jLabelProdutoCadastrarDescricao)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 162, Short.MAX_VALUE)))
+                                .addComponent(jTextFieldProdutoCadastrarDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 81, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelProdutoCadastrarLayout.setVerticalGroup(
@@ -500,10 +533,10 @@ public class GUISistema extends javax.swing.JFrame {
                     .addComponent(jLabelProdutoCadastrarParticularidade)
                     .addComponent(jTextFieldProdutoCadastrarParticularidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelProdutoCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelProdutoCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelProdutoCadastrarDescricao)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                    .addComponent(jTextFieldProdutoCadastrarDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                 .addComponent(jButtonProdutoCadastrar)
                 .addContainerGap())
         );
@@ -521,10 +554,6 @@ public class GUISistema extends javax.swing.JFrame {
         jLabelProdutoAlterarParticularidade.setText("Nova Particularidade:");
 
         jLabelProdutoAlterarDescricao.setText("Nova Descrição:");
-
-        jTextAreaProdutoAlterarDescricao.setColumns(20);
-        jTextAreaProdutoAlterarDescricao.setRows(5);
-        jScrollPane2.setViewportView(jTextAreaProdutoAlterarDescricao);
 
         jButtonProdutoAlterar.setText("Salvar alterações");
         jButtonProdutoAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -553,10 +582,6 @@ public class GUISistema extends javax.swing.JFrame {
                                 .addComponent(jLabelProdutoAlterarCategoria)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextFieldProdutoAlterarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelProdutoAlterarLayout.createSequentialGroup()
-                                .addComponent(jLabelProdutoAlterarDescricao)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelProdutoAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(jPanelProdutoAlterarLayout.createSequentialGroup()
                                     .addComponent(jLabelProdutoAlterarParticularidade)
@@ -569,8 +594,12 @@ public class GUISistema extends javax.swing.JFrame {
                                     .addGap(18, 18, 18)
                                     .addComponent(jLabelProdutoAlterarQuantidade)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextFieldProdutoAlterarQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 134, Short.MAX_VALUE)))
+                                    .addComponent(jTextFieldProdutoAlterarQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanelProdutoAlterarLayout.createSequentialGroup()
+                                .addComponent(jLabelProdutoAlterarDescricao)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextFieldProdutoAlterarDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 73, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelProdutoAlterarLayout.setVerticalGroup(
@@ -595,25 +624,48 @@ public class GUISistema extends javax.swing.JFrame {
                     .addComponent(jLabelProdutoAlterarParticularidade)
                     .addComponent(jTextFieldProdutoAlterarParticularidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelProdutoAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelProdutoAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelProdutoAlterarDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                    .addComponent(jTextFieldProdutoAlterarDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                 .addComponent(jButtonProdutoAlterar)
                 .addContainerGap())
         );
 
         jTabbedPaneProduto.addTab("Alterar Estoque", jPanelProdutoAlterar);
 
+        jButton1ListarProdutos.setText("Listar");
+        jButton1ListarProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ListarProdutosActionPerformed(evt);
+            }
+        });
+
+        jTextAreaListarProdutos.setColumns(20);
+        jTextAreaListarProdutos.setRows(5);
+        jScrollPaneListarProdutos.setViewportView(jTextAreaListarProdutos);
+
         javax.swing.GroupLayout jPanelProdutoListarLayout = new javax.swing.GroupLayout(jPanelProdutoListar);
         jPanelProdutoListar.setLayout(jPanelProdutoListarLayout);
         jPanelProdutoListarLayout.setHorizontalGroup(
             jPanelProdutoListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 504, Short.MAX_VALUE)
+            .addGroup(jPanelProdutoListarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelProdutoListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelProdutoListarLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1ListarProdutos))
+                    .addComponent(jScrollPaneListarProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanelProdutoListarLayout.setVerticalGroup(
             jPanelProdutoListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 332, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelProdutoListarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPaneListarProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1ListarProdutos)
+                .addContainerGap())
         );
 
         jTabbedPaneProduto.addTab("Listar Produtos", jPanelProdutoListar);
@@ -686,18 +738,18 @@ public class GUISistema extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextFieldVendasCadastrarStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelVendasNovaLayout.createSequentialGroup()
-                        .addComponent(jLabelVendaCadastrarCodigoProduto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldVendasCadastrarCodigoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelVendasNovaLayout.createSequentialGroup()
                         .addComponent(jLabelVendaCadastrarQuantidade)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextFieldVendasCadastrarQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelVendasNovaLayout.createSequentialGroup()
                         .addComponent(jLabelVendaCadastrarData)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldVendasCadastrarData, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(121, 275, Short.MAX_VALUE))
+                        .addComponent(jTextFieldVendasCadastrarData, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelVendasNovaLayout.createSequentialGroup()
+                        .addComponent(jLabelVendaCadastrarCodigoProduto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldVendasCadastrarCodigoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(259, 275, Short.MAX_VALUE))
         );
         jPanelVendasNovaLayout.setVerticalGroup(
             jPanelVendasNovaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -712,21 +764,21 @@ public class GUISistema extends javax.swing.JFrame {
                     .addComponent(jTextFieldVendasCadastrarCodigoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelVendasNovaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelVendaCadastrarStatus)
-                    .addComponent(jTextFieldVendasCadastrarStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelVendasNovaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelVendaCadastrarCodigoProduto)
                     .addComponent(jTextFieldVendasCadastrarCodigoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelVendasNovaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldVendasCadastrarStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelVendaCadastrarStatus))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelVendasNovaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelVendaCadastrarQuantidade)
-                    .addComponent(jTextFieldVendasCadastrarQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jTextFieldVendasCadastrarQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelVendaCadastrarQuantidade))
+                .addGap(9, 9, 9)
                 .addGroup(jPanelVendasNovaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelVendaCadastrarData)
                     .addComponent(jTextFieldVendasCadastrarData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                 .addComponent(jButtonVendaCadastrar)
                 .addContainerGap())
         );
@@ -737,10 +789,10 @@ public class GUISistema extends javax.swing.JFrame {
 
         jLabelVendaAlterarStatus.setText("Novo status:");
 
-        jButton6.setText("Salvar alteração");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jButtonVendaAlterar.setText("Salvar alteração");
+        jButtonVendaAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jButtonVendaAlterarActionPerformed(evt);
             }
         });
 
@@ -762,7 +814,7 @@ public class GUISistema extends javax.swing.JFrame {
                 .addContainerGap(324, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVendasAlterarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton6)
+                .addComponent(jButtonVendaAlterar)
                 .addContainerGap())
         );
         jPanelVendasAlterarLayout.setVerticalGroup(
@@ -777,21 +829,44 @@ public class GUISistema extends javax.swing.JFrame {
                     .addComponent(jLabelVendaAlterarStatus)
                     .addComponent(jTextFieldVendasAlterarStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
-                .addComponent(jButton6)
+                .addComponent(jButtonVendaAlterar)
                 .addContainerGap())
         );
 
         jTabbedPaneVendas.addTab("Alterar Status de Venda", jPanelVendasAlterar);
 
+        jButtonListarVendas.setText("Listar");
+        jButtonListarVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonListarVendasActionPerformed(evt);
+            }
+        });
+
+        jTextAreaListarVendas.setColumns(20);
+        jTextAreaListarVendas.setRows(5);
+        jScrollPaneListarVendas.setViewportView(jTextAreaListarVendas);
+
         javax.swing.GroupLayout jPanelVendasListarLayout = new javax.swing.GroupLayout(jPanelVendasListar);
         jPanelVendasListar.setLayout(jPanelVendasListarLayout);
         jPanelVendasListarLayout.setHorizontalGroup(
             jPanelVendasListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 504, Short.MAX_VALUE)
+            .addGroup(jPanelVendasListarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelVendasListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVendasListarLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonListarVendas))
+                    .addComponent(jScrollPaneListarVendas, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanelVendasListarLayout.setVerticalGroup(
             jPanelVendasListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 332, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVendasListarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPaneListarVendas, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonListarVendas)
+                .addContainerGap())
         );
 
         jTabbedPaneVendas.addTab("Listar Vendas", jPanelVendasListar);
@@ -841,7 +916,8 @@ public class GUISistema extends javax.swing.JFrame {
 
     private void jButtonProdutoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProdutoCadastrarActionPerformed
         Produto Produto = new Produto();
-        Produto.SetProduto(Integer.parseInt(jTextFieldProdutoCadastrarCodigo.getText()), Integer.parseInt(jTextFieldProdutoCadastrarQuantidade.getText()), Double.parseDouble(jTextFieldProdutoCadastrarPreco.getText()), jTextAreaProdutoCadastrarDescricao.getText(), jTextFieldProdutoCadastrarCategoria.getText(), jTextFieldProdutoCadastrarParticularidade.getText());
+        Produto.SetProduto(Integer.parseInt(jTextFieldProdutoCadastrarCodigo.getText()), Integer.parseInt(jTextFieldProdutoCadastrarQuantidade.getText()), Double.parseDouble(jTextFieldProdutoCadastrarPreco.getText()), jTextFieldProdutoCadastrarDescricao.getText(), jTextFieldProdutoCadastrarCategoria.getText(), jTextFieldProdutoCadastrarParticularidade.getText());
+        Estoque.AdicionaItem(Produto);
     }//GEN-LAST:event_jButtonProdutoCadastrarActionPerformed
 
     private void jTextFieldProdutoCadastrarPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProdutoCadastrarPrecoActionPerformed
@@ -867,8 +943,8 @@ public class GUISistema extends javax.swing.JFrame {
         }else{
             preco = Estoque.GetProduto(Index).Get_Preco();
         }
-        if(jTextAreaProdutoAlterarDescricao.getText().length()>0){
-            Descricao = jTextAreaProdutoAlterarDescricao.getText();
+        if(jTextFieldProdutoAlterarDescricao.getText().length()>0){
+            Descricao = jTextFieldProdutoAlterarDescricao.getText();
         }else{
             Descricao = Estoque.GetProduto(Index).Get_Descricao();
         }
@@ -894,17 +970,23 @@ public class GUISistema extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldVendasCadastrarCodigoVendaActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void jButtonVendaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVendaAlterarActionPerformed
+        int Codigo = Integer.parseInt(jTextFieldVendasAlterarCodigoVenda.getText());
+        String Status = jTextFieldVendasAlterarStatus.getText();
+        Banco_Vendas.AlteraStatusVenda(Codigo, Status);
+    }//GEN-LAST:event_jButtonVendaAlterarActionPerformed
 
     private void jButtonClienteAlterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClienteAlterarMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonClienteAlterarMouseClicked
-
+    
     private void jButtonClienteCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClienteCadastrarMouseClicked
+
+    }//GEN-LAST:event_jButtonClienteCadastrarMouseClicked
+
+    private void jButtonClienteCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteCadastrarActionPerformed
        Cliente Cliente = new Cliente();
-       Cliente.SetNomeCPF_Cliente(jTextFieldClienteCadastrarNome.getText(), jTextFieldClienteCadastrarCPF.getText());
+        Cliente.SetNomeCPF_Cliente(jTextFieldClienteCadastrarNome.getText(), jTextFieldClienteCadastrarCPF.getText());
        Cliente.SetCodigo(Integer.parseInt(jTextFieldClienteCadastrarCodigo.getText()));
        Cliente.SetEmail(jTextFieldClienteCadastrarEmail.getText());
        Cliente.SetSenha(jPasswordFieldCadastrarSenha.getPassword().toString());
@@ -915,11 +997,10 @@ public class GUISistema extends javax.swing.JFrame {
        if(jTextFieldClienteCadastrarEndereco3.getText().length() > 0){
            Cliente.AdicionaEndereco(jTextFieldClienteCadastrarEndereco3.getText());
        }
-       Banco_Clientes.AdicionaCliente(Cliente);
-    }//GEN-LAST:event_jButtonClienteCadastrarMouseClicked
-
-    private void jButtonClienteCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteCadastrarActionPerformed
-        // TODO add your handling code here:
+       
+        boolean AdicionaCliente = Banco_Clientes.AdicionaCliente(Cliente);
+        System.out.println(jTextFieldClienteCadastrarEmail.getText());
+        Cliente = null;
     }//GEN-LAST:event_jButtonClienteCadastrarActionPerformed
 
     private void jButtonClienteAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteAlterarActionPerformed
@@ -958,9 +1039,59 @@ public class GUISistema extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonClienteAlterarActionPerformed
 
     private void jButtonVendaCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVendaCadastrarActionPerformed
-        Venda Venda = new Venda(Integer.parseInt(jTextFieldVendasCadastrarCodigoVenda.getText()),Integer.parseInt(jTextFieldVendasCadastrarCodigoCliente.getText()),jTextFieldVendasCadastrarData.getText(),jTextFieldVendasCadastrarStatus.getText());
+        int CodigoVenda = Integer.parseInt(jTextFieldVendasCadastrarCodigoVenda.getText());
+        int CodigoCliente = Integer.parseInt(jTextFieldVendasCadastrarCodigoCliente.getText());
+        int CodigoProduto = Integer.parseInt(jTextFieldVendasCadastrarCodigoProduto.getText());
+        int Quantidade = Integer.parseInt(jTextFieldVendasCadastrarQuantidade.getText());
+        String Data = jTextFieldVendasCadastrarData.getText();
+        String Status = jTextFieldVendasCadastrarStatus.getText();
+        
+        Venda Venda = new Venda(CodigoVenda,CodigoCliente, Data,Status);
         Banco_Vendas.AdicionaVenda(Venda, Banco_Clientes);
+        Venda.SetProdutoVendido(CodigoProduto, Quantidade, Estoque);
     }//GEN-LAST:event_jButtonVendaCadastrarActionPerformed
+
+    private void jButtonClienteListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteListarActionPerformed
+        
+        for(int i = 0; i< Banco_Clientes.getListaClientes().size(); i++){
+            jTextAreaListaClientes.append("Nome : " + Banco_Clientes.getListaClientes().get(i).GetNome() + "\n");
+            jTextAreaListaClientes.append("CPF : " + Banco_Clientes.getListaClientes().get(i).GetCPF() + "\n");
+            jTextAreaListaClientes.append("E-Mail : " + Banco_Clientes.getListaClientes().get(i).GetEmail() + "\n");
+            for(int j = 0; j<Banco_Clientes.getListaClientes().get(i).getEnderecos().size();i++){
+            jTextAreaListaClientes.append("Endereço : " + Banco_Clientes.getListaClientes().get(i).getEnderecos().get(i) + "\n");
+            }
+        }
+        
+        
+        
+        Banco_Clientes.ListaClientes();
+    }//GEN-LAST:event_jButtonClienteListarActionPerformed
+
+    private void jTextFieldProdutoCadastrarDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProdutoCadastrarDescricaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldProdutoCadastrarDescricaoActionPerformed
+
+    private void jButton1ListarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ListarProdutosActionPerformed
+         for(int i = 0; i< Estoque.getEstoque().size(); i++){
+            jTextAreaListarProdutos.append("Codigo : " + Estoque.getEstoque().get(i).Get_Codigo() + "\n");
+            jTextAreaListarProdutos.append("Descrição : " + Estoque.getEstoque().get(i).Get_Descricao() + "\n");
+            jTextAreaListarProdutos.append("Preço : " + Estoque.getEstoque().get(i).Get_Preco() + "\n");
+            jTextAreaListarProdutos.append("Quantidade : " + Estoque.getEstoque().get(i).Get_Quantidade() + "\n");
+            jTextAreaListarProdutos.append("Categoria : " + Estoque.getEstoque().get(i).Get_Categoria() + "\n");
+            jTextAreaListarProdutos.append("Particularidade : " + Estoque.getEstoque().get(i).Get_Particularidade() + "\n");
+            
+        }
+         Estoque.ListaProdutos();
+    }//GEN-LAST:event_jButton1ListarProdutosActionPerformed
+
+    private void jButtonListarVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarVendasActionPerformed
+        for(int i = 0; i< Banco_Vendas.getVendas().size(); i++){
+            jTextAreaListarVendas.append("Codigo Venda : " + Banco_Vendas.getVendas().get(i).GetCodigoVenda() + "\n");
+            jTextAreaListarVendas.append("Codigo Cliente : " + Banco_Vendas.getVendas().get(i).GetCodigoC() + "\n");
+            jTextAreaListarVendas.append("Codigo Status : " + Banco_Vendas.getVendas().get(i).GetStatus() + "\n");
+            jTextAreaListarVendas.append("Data : " + Banco_Vendas.getVendas().get(i).GetData() + "\n");
+        }
+    }//GEN-LAST:event_jButtonListarVendasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -998,11 +1129,14 @@ public class GUISistema extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton1ListarProdutos;
     private javax.swing.JButton jButtonClienteAlterar;
     private javax.swing.JButton jButtonClienteCadastrar;
+    private javax.swing.JButton jButtonClienteListar;
+    private javax.swing.JButton jButtonListarVendas;
     private javax.swing.JButton jButtonProdutoAlterar;
     private javax.swing.JButton jButtonProdutoCadastrar;
+    private javax.swing.JButton jButtonVendaAlterar;
     private javax.swing.JButton jButtonVendaCadastrar;
     private javax.swing.JLabel jLabelCadastroClienteCPF;
     private javax.swing.JLabel jLabelCadastroClienteCodigo;
@@ -1055,14 +1189,16 @@ public class GUISistema extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelVendasNova;
     private javax.swing.JPasswordField jPasswordFieldCadastrarSenha;
     private javax.swing.JPasswordField jPasswordFieldClienteAlterarSenha;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPaneListaClientes;
+    private javax.swing.JScrollPane jScrollPaneListarProdutos;
+    private javax.swing.JScrollPane jScrollPaneListarVendas;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPaneCliente;
     private javax.swing.JTabbedPane jTabbedPaneProduto;
     private javax.swing.JTabbedPane jTabbedPaneVendas;
-    private javax.swing.JTextArea jTextAreaProdutoAlterarDescricao;
-    private javax.swing.JTextArea jTextAreaProdutoCadastrarDescricao;
+    private javax.swing.JTextArea jTextAreaListaClientes;
+    private javax.swing.JTextArea jTextAreaListarProdutos;
+    private javax.swing.JTextArea jTextAreaListarVendas;
     private javax.swing.JTextField jTextField27;
     private javax.swing.JTextField jTextFieldClienteAlterarCPF;
     private javax.swing.JTextField jTextFieldClienteAlterarCodigo;
@@ -1078,11 +1214,13 @@ public class GUISistema extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldClienteCadastrarNome;
     private javax.swing.JTextField jTextFieldProdutoAlterarCategoria;
     private javax.swing.JTextField jTextFieldProdutoAlterarCodigo;
+    private javax.swing.JTextField jTextFieldProdutoAlterarDescricao;
     private javax.swing.JTextField jTextFieldProdutoAlterarParticularidade;
     private javax.swing.JTextField jTextFieldProdutoAlterarPreco;
     private javax.swing.JTextField jTextFieldProdutoAlterarQuantidade;
     private javax.swing.JTextField jTextFieldProdutoCadastrarCategoria;
     private javax.swing.JTextField jTextFieldProdutoCadastrarCodigo;
+    private javax.swing.JTextField jTextFieldProdutoCadastrarDescricao;
     private javax.swing.JTextField jTextFieldProdutoCadastrarParticularidade;
     private javax.swing.JTextField jTextFieldProdutoCadastrarPreco;
     private javax.swing.JTextField jTextFieldProdutoCadastrarQuantidade;

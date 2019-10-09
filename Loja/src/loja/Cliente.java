@@ -82,5 +82,8 @@ public class Cliente{
       }
       return "NULL";
   }
+  public ArrayList<String> getEnderecos(){
+      return Enderecos;
+  }
 }
 

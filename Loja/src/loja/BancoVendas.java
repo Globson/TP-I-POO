@@ -18,7 +18,7 @@ public class BancoVendas {
      
      public boolean AdicionaVenda(Venda V,BancoClientes C){ // funcao verifica se codigo de cliente existe para cadastrar venda.
          for(int i=0;i<BancoDVendas.size();i++){
-             if(BancoDVendas.get(i).GetCodigoV() == V.GetCodigoV()){
+             if(BancoDVendas.get(i).GetCodigoVenda() == V.GetCodigoVenda()){
                  return false;
              }
          }
@@ -56,7 +56,7 @@ public class BancoVendas {
          System.out.println("---Inicio da listagem de vendas:--");
          for(int i =0; i<BancoDVendas.size();i++){
              System.out.println("----------Venda "+(i+1)+" ------------");
-             System.out.println("Codigo da venda: "+BancoDVendas.get(i).GetCodigoV());
+             System.out.println("Codigo da venda: "+BancoDVendas.get(i).GetCodigoVenda());
              System.out.println("Codigo do Cliente: "+BancoDVendas.get(i).GetCodigoC());
              System.out.println("Data da venda: "+BancoDVendas.get(i).GetData());
              System.out.println("Status: "+BancoDVendas.get(i).GetStatus());
@@ -64,5 +64,8 @@ public class BancoVendas {
              System.out.println("--------------------------------------");
          }
          System.out.println("---Fim da listagem de vendas---");
+     }
+     public ArrayList<Venda> getVendas(){
+         return BancoDVendas;
      }
 }

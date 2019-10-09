@@ -69,9 +69,7 @@ public class Venda{
       return false;
   }
   
-  public int GetCodigoV(){
-      return CodigoVenda;
-  }
+  
   public int GetCodigoC(){
       return CodigoCliente;
   }

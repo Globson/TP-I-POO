@@ -61,4 +61,8 @@ public class BancoClientes {
         }
         System.out.println("---Fim da listagem de clientes---");
     }
+    
+    public ArrayList<Cliente> getListaClientes(){
+        return Banco_Clientes;
+    }
 }
