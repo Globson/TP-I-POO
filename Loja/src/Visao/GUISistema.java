@@ -5,6 +5,9 @@
  */
 package Visao;
 
+import java.awt.FlowLayout;
+import java.util.Arrays;
+import javax.swing.JDialog;
 import javax.swing.JList;
 import loja.*;
 
@@ -110,6 +113,11 @@ public class GUISistema extends javax.swing.JFrame {
         jButton1ListarProdutos = new javax.swing.JButton();
         jScrollPaneListarProdutos = new javax.swing.JScrollPane();
         jTextAreaListarProdutos = new javax.swing.JTextArea();
+        jPanelProdutoFiltrar = new javax.swing.JPanel();
+        jButtonProdutoFiltrar = new javax.swing.JButton();
+        jTextFieldProdutoFiltrar = new javax.swing.JTextField();
+        jScrollPaneProdutoFiltrar = new javax.swing.JScrollPane();
+        jTextAreaFiltrarProdutos = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jTabbedPaneVendas = new javax.swing.JTabbedPane();
         jPanelVendasNova = new javax.swing.JPanel();
@@ -670,6 +678,46 @@ public class GUISistema extends javax.swing.JFrame {
 
         jTabbedPaneProduto.addTab("Listar Produtos", jPanelProdutoListar);
 
+        jButtonProdutoFiltrar.setText("Filtrar");
+        jButtonProdutoFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProdutoFiltrarActionPerformed(evt);
+            }
+        });
+
+        jTextAreaFiltrarProdutos.setColumns(20);
+        jTextAreaFiltrarProdutos.setRows(5);
+        jScrollPaneProdutoFiltrar.setViewportView(jTextAreaFiltrarProdutos);
+
+        javax.swing.GroupLayout jPanelProdutoFiltrarLayout = new javax.swing.GroupLayout(jPanelProdutoFiltrar);
+        jPanelProdutoFiltrar.setLayout(jPanelProdutoFiltrarLayout);
+        jPanelProdutoFiltrarLayout.setHorizontalGroup(
+            jPanelProdutoFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelProdutoFiltrarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelProdutoFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneProdutoFiltrar)
+                    .addGroup(jPanelProdutoFiltrarLayout.createSequentialGroup()
+                        .addComponent(jTextFieldProdutoFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonProdutoFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 236, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanelProdutoFiltrarLayout.setVerticalGroup(
+            jPanelProdutoFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelProdutoFiltrarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelProdutoFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldProdutoFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonProdutoFiltrar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPaneProdutoFiltrar, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPaneProduto.addTab("Filtrar Produtos", jPanelProdutoFiltrar);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -915,9 +963,16 @@ public class GUISistema extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldProdutoCadastrarQuantidadeActionPerformed
 
     private void jButtonProdutoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProdutoCadastrarActionPerformed
+        
         Produto Produto = new Produto();
         Produto.SetProduto(Integer.parseInt(jTextFieldProdutoCadastrarCodigo.getText()), Integer.parseInt(jTextFieldProdutoCadastrarQuantidade.getText()), Double.parseDouble(jTextFieldProdutoCadastrarPreco.getText()), jTextFieldProdutoCadastrarDescricao.getText(), jTextFieldProdutoCadastrarCategoria.getText(), jTextFieldProdutoCadastrarParticularidade.getText());
         Estoque.AdicionaItem(Produto);
+        jTextFieldProdutoCadastrarCodigo.setText("");
+        jTextFieldProdutoCadastrarQuantidade.setText("");
+        jTextFieldProdutoCadastrarPreco.setText("");
+        jTextFieldProdutoCadastrarDescricao.setText("");
+        jTextFieldProdutoCadastrarCategoria.setText("");
+        jTextFieldProdutoCadastrarParticularidade.setText("");
     }//GEN-LAST:event_jButtonProdutoCadastrarActionPerformed
 
     private void jTextFieldProdutoCadastrarPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProdutoCadastrarPrecoActionPerformed
@@ -959,7 +1014,12 @@ public class GUISistema extends javax.swing.JFrame {
             Particularidade = Estoque.GetProduto(Index).Get_Particularidade();
         }
         Estoque.AlteraEstoque(Codigo, Quantidade, preco, Descricao, Categoria, Particularidade);
-  
+        jTextFieldProdutoAlterarCodigo.setText("");
+        jTextFieldProdutoAlterarQuantidade.setText("");
+        jTextFieldProdutoAlterarPreco.setText("");
+        jTextFieldProdutoAlterarDescricao.setText("");
+        jTextFieldProdutoAlterarCategoria.setText("");
+        jTextFieldProdutoAlterarParticularidade.setText("");
     }//GEN-LAST:event_jButtonProdutoAlterarActionPerformed
 
     private void jTextFieldVendasCadastrarCodigoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVendasCadastrarCodigoClienteActionPerformed
@@ -974,6 +1034,8 @@ public class GUISistema extends javax.swing.JFrame {
         int Codigo = Integer.parseInt(jTextFieldVendasAlterarCodigoVenda.getText());
         String Status = jTextFieldVendasAlterarStatus.getText();
         Banco_Vendas.AlteraStatusVenda(Codigo, Status);
+        jTextFieldVendasAlterarCodigoVenda.setText("");
+        jTextFieldVendasAlterarStatus.setText("");
     }//GEN-LAST:event_jButtonVendaAlterarActionPerformed
 
     private void jButtonClienteAlterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClienteAlterarMouseClicked
@@ -986,21 +1048,26 @@ public class GUISistema extends javax.swing.JFrame {
 
     private void jButtonClienteCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteCadastrarActionPerformed
        Cliente Cliente = new Cliente();
-        Cliente.SetNomeCPF_Cliente(jTextFieldClienteCadastrarNome.getText(), jTextFieldClienteCadastrarCPF.getText());
+       Cliente.SetNomeCPF_Cliente(jTextFieldClienteCadastrarNome.getText(), jTextFieldClienteCadastrarCPF.getText());
        Cliente.SetCodigo(Integer.parseInt(jTextFieldClienteCadastrarCodigo.getText()));
        Cliente.SetEmail(jTextFieldClienteCadastrarEmail.getText());
-       Cliente.SetSenha(jPasswordFieldCadastrarSenha.getPassword().toString());
+       Cliente.SetSenha(Arrays.toString(jPasswordFieldCadastrarSenha.getPassword()));
        Cliente.AdicionaEndereco(jTextFieldClienteCadastrarEndereco1.getText());
-       if(jTextFieldClienteCadastrarEndereco2.getText().length() > 0){
-           Cliente.AdicionaEndereco(jTextFieldClienteCadastrarEndereco2.getText());
-       }
-       if(jTextFieldClienteCadastrarEndereco3.getText().length() > 0){
-           Cliente.AdicionaEndereco(jTextFieldClienteCadastrarEndereco3.getText());
-       }
+       Cliente.AdicionaEndereco(jTextFieldClienteCadastrarEndereco2.getText());
+       Cliente.AdicionaEndereco(jTextFieldClienteCadastrarEndereco3.getText());
        
-        boolean AdicionaCliente = Banco_Clientes.AdicionaCliente(Cliente);
-        System.out.println(jTextFieldClienteCadastrarEmail.getText());
-        Cliente = null;
+       
+        Banco_Clientes.AdicionaCliente(Cliente);
+        
+        
+       jTextFieldClienteCadastrarNome.setText("");
+       jTextFieldClienteCadastrarCPF.setText("");
+       jTextFieldClienteCadastrarCodigo.setText("");    
+       jTextFieldClienteCadastrarEmail.setText("");
+       jPasswordFieldCadastrarSenha.setText("");
+       jTextFieldClienteCadastrarEndereco1.setText("");
+       jTextFieldClienteCadastrarEndereco2.setText("");
+       jTextFieldClienteCadastrarEndereco3.setText("");
     }//GEN-LAST:event_jButtonClienteCadastrarActionPerformed
 
     private void jButtonClienteAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteAlterarActionPerformed
@@ -1036,6 +1103,15 @@ public class GUISistema extends javax.swing.JFrame {
             endereco = Banco_Clientes.GetBancoCliente(index).GetPrimeiroEndereco();
         }
         Banco_Clientes.AlteraCliente(Codigo, nome, cpf, email, jPasswordFieldClienteAlterarSenha.getPassword().toString(), endereco);
+        
+        jTextFieldClienteAlterarNome.setText("");
+        jTextFieldClienteAlterarCPF.setText("");
+        jTextFieldClienteAlterarCodigo.setText("");    
+        jTextFieldClienteAlterarEmail.setText("");
+        jPasswordFieldClienteAlterarSenha.setText("");
+        jTextFieldClienteAlterarEndereco.setText("");
+        
+        
     }//GEN-LAST:event_jButtonClienteAlterarActionPerformed
 
     private void jButtonVendaCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVendaCadastrarActionPerformed
@@ -1049,22 +1125,33 @@ public class GUISistema extends javax.swing.JFrame {
         Venda Venda = new Venda(CodigoVenda,CodigoCliente, Data,Status);
         Banco_Vendas.AdicionaVenda(Venda, Banco_Clientes);
         Venda.SetProdutoVendido(CodigoProduto, Quantidade, Estoque);
+        
+        jTextFieldVendasCadastrarCodigoVenda.setText("");
+        jTextFieldVendasCadastrarCodigoCliente.setText("");
+        jTextFieldVendasCadastrarCodigoProduto.setText("");
+        jTextFieldVendasCadastrarQuantidade.setText("");
+        jTextFieldVendasCadastrarData.setText("");
+        jTextFieldVendasCadastrarStatus.setText("");
     }//GEN-LAST:event_jButtonVendaCadastrarActionPerformed
 
     private void jButtonClienteListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteListarActionPerformed
-        
-        for(int i = 0; i< Banco_Clientes.getListaClientes().size(); i++){
+        jTextAreaListaClientes.setText("");
+        int i;
+        int j;
+        for(i = 0; i< Banco_Clientes.getListaClientes().size(); i++){
+            jTextAreaListaClientes.append("Código : " + Banco_Clientes.getListaClientes().get(i).GetCodigo() + "\n");
             jTextAreaListaClientes.append("Nome : " + Banco_Clientes.getListaClientes().get(i).GetNome() + "\n");
             jTextAreaListaClientes.append("CPF : " + Banco_Clientes.getListaClientes().get(i).GetCPF() + "\n");
             jTextAreaListaClientes.append("E-Mail : " + Banco_Clientes.getListaClientes().get(i).GetEmail() + "\n");
-            for(int j = 0; j<Banco_Clientes.getListaClientes().get(i).getEnderecos().size();i++){
-            jTextAreaListaClientes.append("Endereço : " + Banco_Clientes.getListaClientes().get(i).getEnderecos().get(i) + "\n");
+            for(j = 0; j<Banco_Clientes.getListaClientes().get(i).getEnderecos().size();j++){
+            jTextAreaListaClientes.append("Endereço : " + Banco_Clientes.getListaClientes().get(i).getEnderecos().get(j) + "\n");
             }
+            jTextAreaListaClientes.append("------------------------------------------------------\n");
         }
         
         
         
-        Banco_Clientes.ListaClientes();
+        
     }//GEN-LAST:event_jButtonClienteListarActionPerformed
 
     private void jTextFieldProdutoCadastrarDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProdutoCadastrarDescricaoActionPerformed
@@ -1072,26 +1159,48 @@ public class GUISistema extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldProdutoCadastrarDescricaoActionPerformed
 
     private void jButton1ListarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ListarProdutosActionPerformed
-         for(int i = 0; i< Estoque.getEstoque().size(); i++){
+        jTextAreaListarProdutos.setText("");
+        for(int i = 0; i< Estoque.getEstoque().size(); i++){
             jTextAreaListarProdutos.append("Codigo : " + Estoque.getEstoque().get(i).Get_Codigo() + "\n");
             jTextAreaListarProdutos.append("Descrição : " + Estoque.getEstoque().get(i).Get_Descricao() + "\n");
             jTextAreaListarProdutos.append("Preço : " + Estoque.getEstoque().get(i).Get_Preco() + "\n");
             jTextAreaListarProdutos.append("Quantidade : " + Estoque.getEstoque().get(i).Get_Quantidade() + "\n");
             jTextAreaListarProdutos.append("Categoria : " + Estoque.getEstoque().get(i).Get_Categoria() + "\n");
             jTextAreaListarProdutos.append("Particularidade : " + Estoque.getEstoque().get(i).Get_Particularidade() + "\n");
-            
+            jTextAreaListarProdutos.append("---------------------------------------------------------\n");
         }
-         Estoque.ListaProdutos();
+         
     }//GEN-LAST:event_jButton1ListarProdutosActionPerformed
 
     private void jButtonListarVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarVendasActionPerformed
+        jTextAreaListarVendas.setText("");
         for(int i = 0; i< Banco_Vendas.getVendas().size(); i++){
             jTextAreaListarVendas.append("Codigo Venda : " + Banco_Vendas.getVendas().get(i).GetCodigoVenda() + "\n");
             jTextAreaListarVendas.append("Codigo Cliente : " + Banco_Vendas.getVendas().get(i).GetCodigoC() + "\n");
             jTextAreaListarVendas.append("Codigo Status : " + Banco_Vendas.getVendas().get(i).GetStatus() + "\n");
             jTextAreaListarVendas.append("Data : " + Banco_Vendas.getVendas().get(i).GetData() + "\n");
+            jTextAreaListarVendas.append("---------------------------------------------------------\n");
         }
     }//GEN-LAST:event_jButtonListarVendasActionPerformed
+
+    private void jButtonProdutoFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProdutoFiltrarActionPerformed
+        String nome = jTextFieldProdutoFiltrar.getText();
+        jTextAreaFiltrarProdutos.setText("");
+        for(int i = 0; i< Estoque.getEstoque().size(); i++){
+            if(Estoque.getEstoque().get(i).Get_Descricao().contains(nome)){
+                jTextAreaFiltrarProdutos.append("Codigo : " + Estoque.getEstoque().get(i).Get_Codigo() + "\n");
+                jTextAreaFiltrarProdutos.append("Descrição : " + Estoque.getEstoque().get(i).Get_Descricao() + "\n");
+                jTextAreaFiltrarProdutos.append("Preço : " + Estoque.getEstoque().get(i).Get_Preco() + "\n");
+                jTextAreaFiltrarProdutos.append("Quantidade : " + Estoque.getEstoque().get(i).Get_Quantidade() + "\n");
+                jTextAreaFiltrarProdutos.append("Categoria : " + Estoque.getEstoque().get(i).Get_Categoria() + "\n");
+                jTextAreaFiltrarProdutos.append("Particularidade : " + Estoque.getEstoque().get(i).Get_Particularidade() + "\n");
+                jTextAreaFiltrarProdutos.append("---------------------------------------------------------\n");
+            }
+            
+        }
+        
+        jTextFieldProdutoFiltrar.setText("");
+    }//GEN-LAST:event_jButtonProdutoFiltrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1136,6 +1245,7 @@ public class GUISistema extends javax.swing.JFrame {
     private javax.swing.JButton jButtonListarVendas;
     private javax.swing.JButton jButtonProdutoAlterar;
     private javax.swing.JButton jButtonProdutoCadastrar;
+    private javax.swing.JButton jButtonProdutoFiltrar;
     private javax.swing.JButton jButtonVendaAlterar;
     private javax.swing.JButton jButtonVendaCadastrar;
     private javax.swing.JLabel jLabelCadastroClienteCPF;
@@ -1183,6 +1293,7 @@ public class GUISistema extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelClienteListar;
     private javax.swing.JPanel jPanelProdutoAlterar;
     private javax.swing.JPanel jPanelProdutoCadastrar;
+    private javax.swing.JPanel jPanelProdutoFiltrar;
     private javax.swing.JPanel jPanelProdutoListar;
     private javax.swing.JPanel jPanelVendasAlterar;
     private javax.swing.JPanel jPanelVendasListar;
@@ -1192,10 +1303,12 @@ public class GUISistema extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPaneListaClientes;
     private javax.swing.JScrollPane jScrollPaneListarProdutos;
     private javax.swing.JScrollPane jScrollPaneListarVendas;
+    private javax.swing.JScrollPane jScrollPaneProdutoFiltrar;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPaneCliente;
     private javax.swing.JTabbedPane jTabbedPaneProduto;
     private javax.swing.JTabbedPane jTabbedPaneVendas;
+    private javax.swing.JTextArea jTextAreaFiltrarProdutos;
     private javax.swing.JTextArea jTextAreaListaClientes;
     private javax.swing.JTextArea jTextAreaListarProdutos;
     private javax.swing.JTextArea jTextAreaListarVendas;
@@ -1224,6 +1337,7 @@ public class GUISistema extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldProdutoCadastrarParticularidade;
     private javax.swing.JTextField jTextFieldProdutoCadastrarPreco;
     private javax.swing.JTextField jTextFieldProdutoCadastrarQuantidade;
+    private javax.swing.JTextField jTextFieldProdutoFiltrar;
     private javax.swing.JTextField jTextFieldVendasAlterarCodigoVenda;
     private javax.swing.JTextField jTextFieldVendasAlterarStatus;
     private javax.swing.JTextField jTextFieldVendasCadastrarCodigoCliente;
