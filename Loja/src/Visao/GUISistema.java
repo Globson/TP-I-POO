@@ -994,7 +994,7 @@ public class GUISistema extends javax.swing.JFrame {
             Quantidade = Estoque.GetProduto(Index).Get_Quantidade();
         }
         if(jTextFieldProdutoAlterarPreco.getText().length()>0){
-            preco = Double.parseDouble(jTextFieldProdutoAlterarQuantidade.getText());
+            preco = Double.parseDouble(jTextFieldProdutoAlterarPreco.getText());
         }else{
             preco = Estoque.GetProduto(Index).Get_Preco();
         }
